@@ -23,7 +23,7 @@ class PasswordUpdaterTest extends TestCase
     private $updater;
     private $encoderFactory;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->encoderFactory = $this->getMockBuilder('Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface')->getMock();
 
@@ -54,7 +54,7 @@ class PasswordUpdaterTest extends TestCase
 
     public function testUpdatePasswordWithBCrypt()
     {
-        $encoder = $this->getMockBuilder('Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder')
+        $encoder = $this->getMockBuilder('Symfony\Component\Security\Core\Encoder\NativePasswordEncoder')
             ->disableOriginalConstructor()
             ->getMock();
         $user = new TestUser();
